@@ -40,7 +40,7 @@ const MailboxForm = (props) => {
             </option>
           </select>
         </div>
-
+        <br />
         <div className="row">
           <button type="submit">submit</button>
         </div>

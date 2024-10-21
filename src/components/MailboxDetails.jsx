@@ -8,6 +8,11 @@ const MailboxDetails = (props) => {
   const selectedBox = props.mailboxes.find(
     (mailbox) => mailbox.id === Number(mailboxId)
   );
+ 
+// const selectedLetters = props.letters.filter(
+//   (letter) => letter.mailboxId === Number(mailboxId)
+// );
+
   // const params = useParams();
   return (
     <div className="mail-box">

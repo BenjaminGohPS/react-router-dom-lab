@@ -7,6 +7,7 @@ import { Route, Routes, useNavigate } from "react-router-dom";
 import MailboxList from "./components/MailboxList";
 import MailboxForm from "./components/MailboxForm";
 import MailboxDetails from "./components/MailboxDetails";
+import LetterForm from "./components/LetterForm";
 
 // src/App.jsx
 
@@ -14,6 +15,7 @@ const App = () => {
   const [mailboxes, setMailboxes] = useState([]);
   const [selection, setSelection] = useState("small");
   const [name, setName] = useState("");
+  const [letters, setLetters] = useState([]);
 
   const handleNameChange = (event) => {
     setName(event.target.value);
@@ -32,6 +34,11 @@ const App = () => {
       { id: mailboxes.length, name: name, size: selection },
     ]);
     navigate("/mailboxes");
+  };
+
+  const addLetter = (event) => {
+    event.preventDefault();
+    //code here
   };
 
   return (
@@ -81,6 +88,7 @@ const App = () => {
             />
           }
         />
+        <Route path="/new-letter" element={<LetterForm mailboxes={mailboxes}/>} />
       </Routes>
     </div>
   );
