@@ -3,7 +3,7 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
 import NavBar from "./components/NavBar";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import MailboxList from "./components/MailboxList";
 import MailboxForm from "./components/MailboxForm";
 import MailboxDetails from "./components/MailboxDetails";
@@ -13,17 +13,35 @@ import MailboxDetails from "./components/MailboxDetails";
 const App = () => {
   const [mailboxes, setMailboxes] = useState([]);
   const [selection, setSelection] = useState("small");
+  const [name, setName] = useState("");
+
+  const handleNameChange = (event) => {
+    setName(event.target.value);
+  };
 
   const handleSelectionChange = (event) => {
     setSelection(event.target.value);
+    // setSelection({ ...selection, [event.target.name]: event.target.value });
   };
 
-  const addBox = () => {
-    //code here
+  const newMailboxForm = (event) => {
+    const navigate = useNavigate();
   };
+
+  const addBox = (event) => {
+    event.preventDefault();
+    setMailboxes((prevState) => [
+      ...prevState,
+      { id: mailboxes.length, name: name, size: selection },
+    ]);
+    // navigate("/new-mailbox");
+    useNavigate("/new-mailbox");
+  };
+
   return (
     <div className="container">
       <NavBar />
+
       <Routes>
         <Route
           path="/"
@@ -33,19 +51,45 @@ const App = () => {
             </main>
           }
         />
-        <Route path="/mailboxes" element={<MailboxList />} />
+        <Route
+          path="/mailboxes"
+          element={
+            <MailboxList
+              name={name}
+              size={selection}
+              mailboxId={mailboxes.length}
+              mailboxes={mailboxes}
+            />
+          }
+        />
         <Route
           path="/new-mailbox"
           element={
             <MailboxForm
               selection={selection}
+              name={name}
+              handleNameChange={handleNameChange}
               handleSelectionChange={handleSelectionChange}
+              addBox={addBox}
+              mailboxes={mailboxes}
             />
           }
         />
-        <Route path="mailboxes/:mailboxId" element={<MailboxDetails />} />
+        <Route
+          path="mailboxes/:mailboxId"
+          element={
+            <MailboxDetails
+              name={name}
+              size={selection}
+              mailboxId={mailboxes.length}
+            />
+          }
+        />
       </Routes>
-      {selection}
+      {/* {name}
+      {JSON.stringify(selection)} */}
+      {JSON.stringify(mailboxes)}
+      {mailboxes.length}
     </div>
   );
 };

@@ -5,7 +5,8 @@
   text-align: center;
 
   /* added */
-  background-color: grey;
+  color: white;
+  background-color: #171717;
 }
 
 .logo {
