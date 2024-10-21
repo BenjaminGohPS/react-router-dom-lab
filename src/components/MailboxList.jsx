@@ -9,9 +9,9 @@ const MailboxList = (props) => {
 
       {props.mailboxes.map((item, idx) => {
         return (
-          <ul>
+          <ul key={idx}>
             <li>
-              <Link to={"/mailbox/:mailboxId" + idx}>Mail box {idx + 1}</Link>
+              <Link to={"/mailboxes/" + idx}>Mail box {idx}</Link>
             </li>
           </ul>
         );

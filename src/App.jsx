@@ -82,10 +82,6 @@ const App = () => {
           }
         />
       </Routes>
-      {/* {name}
-      {JSON.stringify(selection)} */}
-      {JSON.stringify(mailboxes)}
-      {mailboxes.length}
     </div>
   );
 };

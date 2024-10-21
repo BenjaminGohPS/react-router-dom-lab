@@ -6,15 +6,15 @@ const MailboxDetails = (props) => {
 
   const { mailboxId } = useParams();
   const selectedBox = props.mailboxes.find(
-    (mailbox) => mailbox._id === Number(mailboxId)
+    (mailbox) => mailbox.id === Number(mailboxId)
   );
-  const params = useParams();
+  // const params = useParams();
   return (
     <div className="mail-box">
-      <h3>Mailbox {params.mailboxId}</h3>
+      <h3>Mailbox {selectedBox.id}</h3>
       <h4>Details</h4>
-      <p>Boxholder: {props.name}</p>
-      <p>Box Size: {props.size}</p>
+      <p>Boxholder: {selectedBox.name}</p>
+      <p>Box Size: {selectedBox.size}</p>
     </div>
   );
 };
@@ -28,4 +28,13 @@ export default MailboxDetails;
       <h4>Details</h4>
       <p>Boxholder: {props.name}</p>
       <p>Box Size: {props.size}</p>
+
+<div className="mail-box">
+<h3>Mailbox {{ mailboxId }.mailboxId}</h3>
+ <h4>Details</h4>
+<p>Boxholder: {props.name}</p>
+<p>Box Size: {props.size}</p>
+</div>
+
+<h3>Mailbox {selectedBox.id}</h3>
 */
