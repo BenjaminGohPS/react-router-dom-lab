@@ -21,12 +21,9 @@ const App = () => {
 
   const handleSelectionChange = (event) => {
     setSelection(event.target.value);
-    // setSelection({ ...selection, [event.target.name]: event.target.value });
   };
 
-  const newMailboxForm = (event) => {
-    const navigate = useNavigate();
-  };
+  const navigate = useNavigate();
 
   const addBox = (event) => {
     event.preventDefault();
@@ -34,8 +31,7 @@ const App = () => {
       ...prevState,
       { id: mailboxes.length, name: name, size: selection },
     ]);
-    navigate("/new-mailbox");
-    // useNavigate("/new-mailbox");
+    navigate("/mailboxes");
   };
 
   return (
@@ -71,17 +67,17 @@ const App = () => {
               handleNameChange={handleNameChange}
               handleSelectionChange={handleSelectionChange}
               addBox={addBox}
-              mailboxes={mailboxes}
             />
           }
         />
         <Route
-          path="mailboxes/:mailboxId"
+          path="/mailboxes/:mailboxId"
           element={
             <MailboxDetails
               name={name}
               size={selection}
               mailboxId={mailboxes.length}
+              mailboxes={mailboxes}
             />
           }
         />

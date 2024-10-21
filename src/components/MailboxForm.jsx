@@ -1,10 +1,6 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 
 const MailboxForm = (props) => {
-  const newMailboxForm = (event) => {
-    const navigate = useNavigate();
-  };
   return (
     <div className="container">
       <h1>MailboxForm</h1>

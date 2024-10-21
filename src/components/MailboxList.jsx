@@ -11,14 +11,7 @@ const MailboxList = (props) => {
         return (
           <ul>
             <li>
-              <Link to="/mailbox/:mailboxId">
-                {/* <MailboxDetails
-                  name={props.name}
-                  size={props.size}
-                  mailboxId={props.mailboxId}
-                /> */}
-                Mail box {idx + 1}
-              </Link>
+              <Link to={"/mailbox/:mailboxId" + idx}>Mail box {idx + 1}</Link>
             </li>
           </ul>
         );

@@ -9,7 +9,14 @@ const MailboxDetails = (props) => {
     (mailbox) => mailbox._id === Number(mailboxId)
   );
   const params = useParams();
-  return <div className="mail-box">TEST</div>;
+  return (
+    <div className="mail-box">
+      <h3>Mailbox {params.mailboxId}</h3>
+      <h4>Details</h4>
+      <p>Boxholder: {props.name}</p>
+      <p>Box Size: {props.size}</p>
+    </div>
+  );
 };
 
 export default MailboxDetails;
