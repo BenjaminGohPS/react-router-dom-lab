@@ -3,27 +3,28 @@ import { Link } from "react-router-dom";
 import MailboxDetails from "./MailboxDetails";
 
 const MailboxList = (props) => {
+  return (
+    <div>
+      <h1>MailboxList</h1>
 
-
-  return props.mailboxes.map((item, idx) => {
-    return (
-      <div>
-        <h1>MailboxList</h1>
-        <ul>
-          <li>
-            <Link to="/mailbox/:mailboxId">
-              {/* <MailboxDetails
+      {props.mailboxes.map((item, idx) => {
+        return (
+          <ul>
+            <li>
+              <Link to="/mailbox/:mailboxId">
+                {/* <MailboxDetails
                   name={props.name}
                   size={props.size}
                   mailboxId={props.mailboxId}
                 /> */}
-              Mail box {idx + 1}
-            </Link>
-          </li>
-        </ul>
-      </div>
-    );
-  });
+                Mail box {idx + 1}
+              </Link>
+            </li>
+          </ul>
+        );
+      })}
+    </div>
+  );
 };
 
 export default MailboxList;

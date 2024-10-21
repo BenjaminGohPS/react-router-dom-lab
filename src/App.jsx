@@ -34,8 +34,8 @@ const App = () => {
       ...prevState,
       { id: mailboxes.length, name: name, size: selection },
     ]);
-    // navigate("/new-mailbox");
-    useNavigate("/new-mailbox");
+    navigate("/new-mailbox");
+    // useNavigate("/new-mailbox");
   };
 
   return (
